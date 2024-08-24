@@ -1,12 +1,23 @@
-/* --------- Global style */
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
 
+/* Global style */
+
+/* To override default styles from the browser */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* General body styles */
 body {
     font-family: "Raleway", sans-serif;
     color: #445361;
     text-align: center;
 }
 
-/* --------- Heading */
+/* Heading */
 
 header {
     background-color: black;
@@ -17,9 +28,29 @@ header {
 }
 
 main {
-    background-color: blue;
+    box-sizing: border-box;
+    width: 90%;
+    height: 65vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1%;
 }
 
+button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px;
+    background-color: lightslategray;
+    border: none;
+}
+
+button:hover {
+border: solid greenyellow;
+}
+
+
 footer {
-    background-color: blueviolet;
+    background-color: black;
+    color: white;
 }

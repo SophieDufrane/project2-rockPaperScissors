@@ -4,11 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <title>Rock Paper Scissors Lizard Spock Game</title>
 </head>
@@ -25,14 +20,25 @@
         <!-- Game area with console (buttons) and result with 2 images -->
         <div class="game.area">
             <div class="console.area"></div>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
+                <button id="rockButton">
+                    <img src="" alt="Rock icone">
+                </button>
+                <button id="paperButton">
+                    <img src="" alt="Paper icone">
+                </button>
+                <button id="scissorsButton">
+                    <img src="" alt="Scissors icone">
+                </button>
+                <button id="lizardButton">
+                    <img src="" alt="Lizard icone">
+                </button>
+                <button id="spockButton">
+                    <img src="" alt="Spock icone">
+                </button>
+
             <div class="result.area"></div>
-                <div id="user.score"></div>
-                <div id="comp.score"></div>
+            <div id="user.score"></div>
+            <div id="comp.score"></div>
         </div>
 
         <!-- Score area with user and computer incremented score -->
@@ -41,7 +47,7 @@
             <div id="comp.score"></div>
         </div>
 
-  <!-- Rules area -->
+        <!-- Rules area -->
         <div class="rules.area">
             <p>Scissors cuts Paper</p>
             <p>Paper covers Rock</p>
