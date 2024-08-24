@@ -85,6 +85,10 @@ header {
     margin: 50px auto;
 }
 
+.result-section > .result-images:first-child {
+    border: solid 8px #fedf4e;
+}
+
 /* Result Images that display the user selection and the computer one*/
 .result-images {
     width: 200px;
