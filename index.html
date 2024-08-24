@@ -14,65 +14,56 @@
         <h1>Rock Paper Scissors Lizard Spock</h1>
     </header>
 
-    <!-- Main content -->
-    <main>
+    <!-- Game area with console (buttons) and result with 2 images -->
+    <div class="game-area">
+        <div class="console-section">
+            <button id="rock-button">
+                <img src="/assets/images/rock.png" alt="Rock icone">
+            </button>
+            <button id="paper-button">
+                <img src="/assets/images/paper.png" alt="Paper icone">
+            </button>
+            <button id="scissors-button">
+                <img src="/assets/images/scissors.png" alt="Scissors icone">
+            </button>
+            <button id="lizard-button">
+                <img src="/assets/images/lizard.png" alt="Lizard icone">
+            </button>
+            <button id="spock-button">
+                <img src="/assets/images/spock.jpg" alt="Spock icone">
+            </button>
+        </div>
 
-        <!-- Game area with console (buttons) and result with 2 images -->
-        <div class="game-area">
-            <div class="console-section">
-                <button id="rock-button">
-                    <img src="/assets/images/rock.png" alt="Rock icone">
-                </button>
-                <button id="paper-button">
-                    <img src="/assets/images/paper.png" alt="Paper icone">
-                </button>
-                <button id="scissors-button">
-                    <img src="/assets/images/scissors.png" alt="Scissors icone">
-                </button>
-                <button id="lizard-button">
-                    <img src="/assets/images/lizard.png" alt="Lizard icone">
-                </button>
-                <button id="spock-button">
-                    <img src="/assets/images/spock.jpg" alt="Spock icone">
-                </button>
+        <div class="result-section">
+            <div class="result-images">
+                <img id="user-selection" src="/assets/images/spock.jpg" alt="User selection icon">
             </div>
-
-            <div class="result-section">
-                <div class="result-images">
-                    <img id="user-selection" src="/assets/images/spock.jpg" alt="User selection icone">
+            <div class="score-area">
+                <span class="glow-text" id="result-message">You Win!</span>
+                <div class="score-line">
+                    <span id="user-score">0</span>
+                    <p> : </p>
+                    <span id="kirk-score">0</span>
                 </div>
-                <div class="score-area">
-                    <span id="result-message">You Win!</span>
-                    <div class="score-line">
-                        <span id="user-score">0</span>
-                        <p> : </p>
-                        <span id="kirk-score">0</span>
-                    </div>
-                </div>
-                <div class="result-images">
-                    <img id="kirk-selection" src="/assets/images/lizard.png" alt="User selection icone">
-                </div>
+            </div>
+            <div class="result-images">
+                <img id="kirk-selection" src="/assets/images/lizard.png" alt="Kirk selection icon">
             </div>
         </div>
+
 
         <!-- Rules area -->
         <div class="rules-area">
-            <p>Scissors cuts Paper</p>
-            <p>Paper covers Rock</p>
-            <p>Rock crushes Lizard</p>
-            <p>Lizard poisons Spock</p>
-            <p>Spock smashes Scissors</p>
-            <p>Scissors decapitates Lizard</p>
-            <p>Lizard eats Paper</p>
-            <p>Paper disproves Spock</p>
-            <p>Spock vaporizes Rock</p>
-            <p>Rock crushes Scissors</p>
+            <p>Scissors cuts Paper > Paper covers Rock > Rock crushes Lizard > Lizard poisons Spock >
+                Spock smashes Scissors > Scissors decapitates Lizard > Lizard eats Paper > Paper disproves Spock >
+                Spock vaporizes Rock > Rock crushes Scissors</p>
         </div>
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>This is the footer</p>
+        <p>Make your move and see if you can beat Captain Kirk!</p>
+        </p>
     </footer>
 
     <script src="assets/js/script.js"></script>

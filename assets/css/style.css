@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
 
 /* Global style */
-
 /* To override default styles from the browser */
 * {
     padding: 0;
@@ -17,7 +16,20 @@ body {
     background-color: #7bccf5;
 }
 
-/* Heading */
+.glow-text {
+    text-shadow:
+        0 0 12px #7bccf5,
+        /* Light blue glow for contrast */
+        0 0 16px #3f7b99,
+        /* Larger light blue glow */
+        0 0 20px #ff8c00,
+        /* Orange glow */
+        0 0 22px #194154,
+        /* Extended light blue glow */
+        0 0 25px #0f0e0a;
+}
+
+/* ---------------- Heading */
 header {
     background-color: black;
     color: white;
@@ -26,42 +38,35 @@ header {
     padding: 15px;
 }
 
-main {
-    width: 90%;
-    margin: 0 auto;
-}
-
-/* Game Area with console section and result section */
+/* ---------------- Game Area with console section and result section */
 .game-area {
     width: 80%;
-    margin: 30px auto;
+    margin: 40px auto;
 }
 
-/* Console Section */
+/* ------ Console Section */
 .console-section {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-bottom: 20px;
     overflow: hidden;
     /* Ensures the image doesn't overflow */
+    margin: 50px auto;
 }
 
-/* buttons */
+/* buttons within the console section */
 .console-section button {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin: 20px;
-    background-color: white;
     border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: white;
+    /* Ensures white background for all images when there have a transparent background */
 }
 
 .console-section button img {
     filter: grayscale(100%);
+    /* Ensures the same color for all images by changing all in grey*/
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
@@ -72,35 +77,33 @@ main {
     border: solid 8px #fedf4e;
 }
 
-/* Result Section */
+/* ------ Result Section */
 .result-section {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+    align-items: flex-start;
+    margin: 50px auto;
 }
 
-/* Result Section Images that display the user selection and the computer one*/
+/* Result Images that display the user selection and the computer one*/
 .result-images {
     width: 200px;
     height: 200px;
     background-color: white;
     border-radius: 50%;
-    overflow: hidden; /* Ensures the image doesn't overflow */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
+    /* Ensures the image doesn't overflow */
 }
 
 .result-section img {
     filter: grayscale(100%);
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     /* Ensures the image covers the area without distortion */
 }
 
-/* Result Section Result in between the 2 images, that displays the result message and the score below*/
+/* Result displays message and incremented score */
 .score-area {
     display: flex;
     flex-direction: column;
@@ -128,23 +131,36 @@ main {
 
 .score-area span {
     font-family: "Audiowide", sans-serif;
+    font-size: 3.5rem;
+    color: #fedf4e;
     margin: 0 10px;
 }
 
 .score-area p {
     font-weight: bold;
+    font-family: "Audiowide", sans-serif;
+    font-size: 3.5rem;
+    color: #fedf4e;
     margin: 0 10px;
 }
 
-/* Rules Area */
+/* ------ Rules Area */
 .rules-area {
-    margin-top: 20px;
-    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
 }
 
-/* Footer */
+.rules-area p {
+    font-size: 1.1rem;
+}
+
+/* ---------------- Footer */
 footer {
     background-color: black;
     color: white;
-    padding: 10px;
+    font-family: "Righteous", sans-serif;
+    font-size: 1.5rem;
+    padding: 15px;
 }
