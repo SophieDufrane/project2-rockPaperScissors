@@ -1,5 +1,5 @@
 /* Google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
 
 /* Global style */
 
@@ -13,8 +13,8 @@
 /* General body styles */
 body {
     font-family: "Raleway", sans-serif;
-    color: #445361;
     text-align: center;
+    background-color: #7bccf5;
 }
 
 /* Heading */
@@ -34,7 +34,7 @@ main {
 /* Game Area with console section and result section */
 .game-area {
     width: 80%;
-    margin: 0 auto;
+    margin: 30px auto;
 }
 
 /* Console Section */
@@ -45,13 +45,6 @@ main {
     margin-bottom: 20px;
     overflow: hidden;
     /* Ensures the image doesn't overflow */
-}
-
-.console-section img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    /* Ensures the image covers the area without distortion */
 }
 
 /* buttons */
@@ -67,50 +60,86 @@ main {
     justify-content: center;
 }
 
-.console-section button:hover {
-    border: solid greenyellow;
-}
-
-/* Result Section */
-.result-section {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.result-section>div {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    /* Ensures the image doesn't overflow */
-}
-
-.result-section img {
+.console-section button img {
+    filter: grayscale(100%);
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
     /* Ensures the image covers the area without distortion */
 }
 
-#result-message {
-    font-family: "Righteous", sans-serif;
-    font-size: 2.5rem;
-    color: greenyellow;
+.console-section button:hover {
+    border: solid 8px #fedf4e;
 }
 
-/* Score Area */
+/* Result Section */
+.result-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Result Section Images that display the user selection and the computer one*/
+.result-images {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    overflow: hidden; /* Ensures the image doesn't overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-section img {
+    filter: grayscale(100%);
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
+}
+
+/* Result Section Result in between the 2 images, that displays the result message and the score below*/
 .score-area {
-    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 40px;
+    padding: 20px;
+    border: solid 3px #fedf4e;
+    border-radius: 8px;
+}
+
+#result-message {
+    font-family: "Righteous", sans-serif;
+    font-size: 3.5rem;
+    color: #fedf4e;
+    margin-bottom: 10px;
+}
+
+.score-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.score-area span {
+    font-family: "Audiowide", sans-serif;
+    margin: 0 10px;
+}
+
+.score-area p {
+    font-weight: bold;
+    margin: 0 10px;
 }
 
 /* Rules Area */
 .rules-area {
     margin-top: 20px;
+    padding: 15px;
 }
 
 /* Footer */
