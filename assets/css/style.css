@@ -22,53 +22,92 @@ header {
     background-color: black;
     color: white;
     font-family: "Righteous", sans-serif;
-    text-align: center;
     font-size: 2.5rem;
 }
 
 main {
-    box-sizing: border-box;
     width: 90%;
-    height: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1%;
+    margin: 0 auto;
+}
+
+/* Game Area with console section and result section */
+.game-area {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Console Section */
+.console-section {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 /* buttons */
-button {
+.console-section button {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin: 20px;
     background-color: grey;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-button:hover {
+
+.console-section button:hover {
     border: solid greenyellow;
 }
 
-#user-selection {
-    text-align: center;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    margin: 20px;
-    border: 1px solid grey;
+.console-section button img {
+    width: 80%;
+    height: 80%;
 }
 
-#kirk-selection {
-    text-align: center;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    margin: 20px;
-    border: 1px solid grey;
+/* Result Section */
+.result-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-/* footer */
+.result-section > div {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 20px;
+    border: 1px solid grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#result {
+    border: none;
+}
+
+#result-message {
+    font-family: "Righteous", sans-serif;
+    font-size: 2.5rem;
+    color: greenyellow;
+} 
+
+/* Score Area */
+.score-area {
+    margin: 20px 0;
+}
+
+/* Rules Area */
+.rules-area {
+    margin-top: 20px;
+}
+
+/* Footer */
 footer {
     background-color: black;
     color: white;
+    padding: 10px;
 }
