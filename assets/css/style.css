@@ -23,6 +23,7 @@ header {
     color: white;
     font-family: "Righteous", sans-serif;
     font-size: 2.5rem;
+    padding: 15px;
 }
 
 main {
@@ -42,6 +43,15 @@ main {
     justify-content: space-around;
     flex-wrap: wrap;
     margin-bottom: 20px;
+    overflow: hidden;
+    /* Ensures the image doesn't overflow */
+}
+
+.console-section img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
 }
 
 /* buttons */
@@ -50,21 +60,15 @@ main {
     height: 150px;
     border-radius: 50%;
     margin: 20px;
-    background-color: grey;
+    background-color: white;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-
 .console-section button:hover {
     border: solid greenyellow;
-}
-
-.console-section button img {
-    width: 80%;
-    height: 80%;
 }
 
 /* Result Section */
@@ -74,26 +78,30 @@ main {
     margin-bottom: 20px;
 }
 
-.result-section > div {
+.result-section>div {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     margin: 0 20px;
-    border: 1px solid grey;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    /* Ensures the image doesn't overflow */
 }
 
-#result {
-    border: none;
+.result-section img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the area without distortion */
 }
 
 #result-message {
     font-family: "Righteous", sans-serif;
     font-size: 2.5rem;
     color: greenyellow;
-} 
+}
 
 /* Score Area */
 .score-area {
