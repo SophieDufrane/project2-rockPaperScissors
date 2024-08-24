@@ -18,37 +18,47 @@
     <main>
 
         <!-- Game area with console (buttons) and result with 2 images -->
-        <div class="game.area">
-            <div class="console.area"></div>
-                <button id="rockButton">
+        <div class="game-area">
+            <div class="console-area">
+                <button id="rock-button">
                     <img src="" alt="Rock icone">
                 </button>
-                <button id="paperButton">
+                <button id="paper-button">
                     <img src="" alt="Paper icone">
                 </button>
-                <button id="scissorsButton">
+                <button id="scissors-button">
                     <img src="" alt="Scissors icone">
                 </button>
-                <button id="lizardButton">
+                <button id="lizard-button">
                     <img src="" alt="Lizard icone">
                 </button>
-                <button id="spockButton">
+                <button id="spock-button">
                     <img src="" alt="Spock icone">
                 </button>
+            </div>
 
-            <div class="result.area"></div>
-            <div id="user.score"></div>
-            <div id="comp.score"></div>
+            <div class="result-area">
+                <div id="user-selection">
+                    <p>User selection</p>
+                </div>
+                <div id="kirk-selection">
+                    <p>Kirk selection</p>
+                </div>
+            </div>
         </div>
 
         <!-- Score area with user and computer incremented score -->
-        <div class="score.area">
-            <div id="user.score"></div>
-            <div id="comp.score"></div>
+        <div class="score-area">
+            <div>
+                <p>You: <span id="user-score">0</span></p>
+            </div>
+            <div>
+                <p>Capitaine Kirk: <span id="kirk-score">0</span></p>
+            </div>
         </div>
 
         <!-- Rules area -->
-        <div class="rules.area">
+        <div class="rules-area">
             <p>Scissors cuts Paper</p>
             <p>Paper covers Rock</p>
             <p>Rock crushes Lizard</p>
