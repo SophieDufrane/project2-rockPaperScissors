@@ -5,20 +5,27 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
-            let choice = this.getAttribute("data-choice");
-
-            if (choice === "0") {
-                alert("You selected Rock");
-            } else if (choice === "1") {
-                alert("You selected Paper");
-            } else if (choice === "2") {
-                alert("You selected Scissors");
-            } else if (choice === "3") {
-                alert("You selected Lizard");
-            } else if (choice === "4") {
-                alert("You selected Spock");
-            }
+            let userChoice = this.getAttribute("data-choice");
+            runGame(userChoice);
         });
     }
 });
 
+const choices = ["rock", "paper", "scissors", "lizard", "spock"];
+const userImage = document.getElementById("user-selection");
+const computerImage = document.getElementById("computer-selection");
+
+function runGame(userChoice) {
+	
+	userImage.src = `assets/images/${choices[userChoice]}.png`;
+	userImage.alt = choices[userChoice];
+	
+	let computerChoice = Math.floor(Math.random() * 5);
+	
+	computerImage.src = `assets/images/${choices[computerChoice]}.png`;
+	computerImage.alt = choices[computerChoice];
+	
+	let result = checkWinner(choices[playerChoice], choices[computerChoice]);
+	
+	updateScores(result);
+}
