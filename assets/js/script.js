@@ -41,12 +41,7 @@ function runGame(userSelection) {
 
 
 function checkWinner (userSelection, computerSelection) {
-    if (userSelection === computerSelection) {
-        alert ("Draw!")
-    } else {
-        alert ("Looser!")
-    }
-    
+
 }
 
 
