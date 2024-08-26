@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
-            let userSelection = this.getAttribute("data-selection");
+            let userSelection = parseInt(this.getAttribute("data-selection"));
             runGame(userSelection);
         });
     }
@@ -34,11 +34,11 @@ function runGame(userSelection) {
 	computerIcon.alt = selection[computerSelection];
 	
     // check result with the function checkWinner with 2 variables, the user and computer selection.
-    let result = checkWinner(userSelection, selection[computerSelection]);
+    let result = checkWinner(selection[userSelection],selection[computerSelection]);
 
     updateResultMessage(result);
 
-    updateRuleMessage(result);
+    updateRuleMessage(selection[userSelection],selection[computerSelection]);
 
     // Update scores (not implemented yet!!!!)
     updateScores(result);
