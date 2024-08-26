@@ -17,7 +17,7 @@ const userIcon = document.getElementById("user-selection");
 const computerIcon = document.getElementById("computer-selection");
 
 /**
- * Main game funtion, with one parameter: the user choice
+ * Main game function, with one parameter: the user choice
  * which is the data-selection of the button selected (Rock, paper, scissors...)  
  */
 function runGame(userSelection) {
@@ -33,31 +33,47 @@ function runGame(userSelection) {
 	computerIcon.src = `assets/images/${selection[computerSelection]}.png`;
 	computerIcon.alt = selection[computerSelection];
 	
-    // check result with the function checkWinner with 2 variable, the user and computer selection.
-	let result = checkWinner(selection[userSelection], selection[computerSelection]);
-	
-	updateScores(result);
+    // check result with the function checkWinner with 2 variables, the user and computer selection.
+    let result = checkWinner(userSelection, selection[computerSelection]);
+
+    updateResultMessage(result);
+
+    // Update scores (not implemented yet!!!!)
+    updateScores(result);
 }
 
-
-function checkWinner (userSelection, computerSelection) {
+/**
+ * Check combinations and determine the winning conditions and results based on the rules
+ */
+function checkWinner(userSelection, computerSelection) {
     if (userSelection === computerSelection) {
         return "draw";
     }
 
     if (
-        (userSelection === "rock" && computerSelection === "lizard" || userSelection === "rock" && computerSelection === "scissors")
-        (userSelection === "paper" && computerSelection === "rock" || userSelection === "paper" && computerSelection === "spock")
-        (userSelection === "scissors" && computerSelection === "paper" || userSelection === "scissors" && computerSelection === "lizard")
-        (userSelection === "lizard" && computerSelection === "spock" || userSelection === "lizard" && computerSelection === "paper")
-        (userSelection === "spock" && computerSelection === "scissors" || userSelection === "spock" && computerSelection === "rock")
+        (userSelection === "rock" && (computerSelection === "lizard" || computerSelection === "scissors")) ||
+        (userSelection === "paper" && (computerSelection === "rock" || computerSelection === "spock")) ||
+        (userSelection === "scissors" && (computerSelection === "paper" || computerSelection === "lizard")) ||
+        (userSelection === "lizard" && (computerSelection === "spock" || computerSelection === "paper")) ||
+        (userSelection === "spock" && (computerSelection === "scissors" || computerSelection === "rock"))
     ) {
         return "win";
     } else {
-        return "lose"
+        return "lose";
     }
 }
 
+function updateResultMessage(result) {
+    let resultMessage = document.getElementById("result-message");
+
+    if (result === "win") {
+        resultMessage.textContent = "You Win!";
+    } else if (result === "lose") {
+        resultMessage.textContent = "You lose";
+    } else {
+        resultMessage.textContent = "It's a draw";
+    }
+}
 
 function incrementScore() {
 
