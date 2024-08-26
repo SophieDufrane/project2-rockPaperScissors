@@ -34,14 +34,14 @@ header {
     background-color: black;
     color: white;
     font-family: "Righteous", sans-serif;
-    font-size: 2.5rem;
+    font-size: 1.2rem;
     padding: 15px;
 }
 
 /* ---------------- Game Area with console section and result section */
 .game-area {
-    width: 80%;
-    margin: 40px auto;
+    width: 95%;
+    margin: 20px auto;
 }
 
 /* ------ Console Section */
@@ -51,13 +51,13 @@ header {
     flex-wrap: wrap;
     overflow: hidden;
     /* Ensures the image doesn't overflow */
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 /* buttons within the console section */
 .console-section button {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: none;
     background-color: white;
@@ -74,25 +74,70 @@ header {
 }
 
 .console-section button:hover {
-    border: solid 8px #fedf4e;
+    border: solid 5px #fedf4e;
 }
 
 /* ------ Result Section */
 .result-section {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     margin: 50px auto;
 }
 
-.result-section > .result-images:first-child {
-    border: solid 8px #fedf4e;
+/* Result displays message and incremented score */
+.score-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: solid 3px #fedf4e;
+    border-radius: 8px;
+}
+
+#result-message {
+    font-family: "Righteous", sans-serif;
+    font-size: 1.5rem;
+    color: #fedf4e;
+    margin-bottom: 10px;
+}
+
+.score-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.score-area span {
+    font-family: "Audiowide", sans-serif;
+    font-size: 1rem;
+    color: #fedf4e;
+    margin: 0 5px;
+}
+
+.score-area p {
+    font-weight: bold;
+    font-family: "Audiowide", sans-serif;
+    font-size: 1rem;
+    color: #fedf4e;
+    margin: 0 5px;
 }
 
 /* Result Images that display the user selection and the computer one*/
+.images-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
 .result-images {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     background-color: white;
     border-radius: 50%;
     overflow: hidden;
@@ -107,57 +152,14 @@ header {
     /* Ensures the image covers the area without distortion */
 }
 
-/* Result displays message and incremented score */
-.score-area {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 40px;
-    padding: 20px;
-    border: solid 3px #fedf4e;
-    border-radius: 8px;
+.images-area>.result-images:first-child {
+    border: solid 5px #fedf4e;
 }
 
-#result-message {
-    font-family: "Righteous", sans-serif;
-    font-size: 3.5rem;
-    color: #fedf4e;
-    margin-bottom: 10px;
-}
-
-.score-line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-}
-
-.score-area span {
+.result-rules {
+    width: 25%;
     font-family: "Audiowide", sans-serif;
-    font-size: 3.5rem;
-    color: #fedf4e;
-    margin: 0 10px;
-}
-
-.score-area p {
-    font-weight: bold;
-    font-family: "Audiowide", sans-serif;
-    font-size: 3.5rem;
-    color: #fedf4e;
-    margin: 0 10px;
-}
-
-/* ------ Rules Area */
-.rules-area {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 50px auto;
-}
-
-.rules-area p {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* ---------------- Footer */

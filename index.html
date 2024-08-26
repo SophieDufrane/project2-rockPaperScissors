@@ -20,24 +20,21 @@
             <button data-selection="0">
                 <img src="assets/images/rock.png" alt="Rock icon">
             </button>
-            <button data-selection="1" >
+            <button data-selection="1">
                 <img src="assets/images/paper.png" alt="Paper icone">
             </button>
-            <button data-selection="2" >
+            <button data-selection="2">
                 <img src="assets/images/scissors.png" alt="Scissors icone">
             </button>
-            <button data-selection="3" >
+            <button data-selection="3">
                 <img src="assets/images/lizard.png" alt="Lizard icone">
             </button>
-            <button data-selection="4" >
+            <button data-selection="4">
                 <img src="assets/images/spock.png" alt="Spock icone">
             </button>
         </div>
 
         <div class="result-section">
-            <div class="result-images">
-                <img id="user-selection" src="assets/images/spock.png" alt="User selection icon">
-            </div>
             <div class="score-area">
                 <span class="glow-text" id="result-message">You Win!</span>
                 <div class="score-line">
@@ -46,20 +43,20 @@
                     <span id="computer-score">0</span>
                 </div>
             </div>
-            <div class="result-images">
-                <img id="computer-selection" src="assets/images/lizard.png" alt="Computer selection icon">
+            <div class="images-area">
+                <div class="result-images">
+                    <img id="user-selection" src="assets/images/spock.png" alt="User selection icon">
+                </div>
+                <div class="result-rules">
+                    <span id="rule-applied">Scissors cuts Paper</span>
+                </div>
+                <div class="result-images">
+                    <img id="computer-selection" src="assets/images/lizard.png" alt="Computer selection icon">
+                </div>
             </div>
         </div>
-
-
-        <!-- Rules area -->
-        <div class="rules-area">
-            <p>Scissors cuts Paper > Paper covers Rock > Rock crushes Lizard > Lizard poisons Spock >
-                Spock smashes Scissors > Scissors decapitates Lizard > Lizard eats Paper > Paper disproves Spock >
-                Spock vaporizes Rock > Rock crushes Scissors</p>
-        </div>
     </div>
-
+    
     <!-- Footer -->
     <footer>
         <p>Make your move and see if you can beat Captain Kirk!</p>
