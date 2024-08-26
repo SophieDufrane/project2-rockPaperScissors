@@ -10,7 +10,16 @@
 }
 
 /* General body styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     font-family: "Raleway", sans-serif;
     text-align: center;
     background-color: #7bccf5;
@@ -169,4 +178,5 @@ footer {
     font-family: "Righteous", sans-serif;
     font-size: 1.5rem;
     padding: 15px;
+    margin-top: auto;
 }
