@@ -15,6 +15,28 @@ document.addEventListener("DOMContentLoaded", function() {
 const selection = ["rock", "paper", "scissors", "lizard", "spock"];
 const userIcon = document.getElementById("user-selection");
 const computerIcon = document.getElementById("computer-selection");
+const rules = {
+    "rock": {
+        "lizard": "Rock crushes Lizard",
+        "scissors": "Rock crushes Scissors"
+    },
+    "paper": {
+        "rock": "Paper covers Rock",
+        "spock": "Paper disproves Spock"
+    },
+    "scissors": {
+        "paper": "Scissors cuts Paper",
+        "lizard": "Scissors decapitates Lizard"
+    },
+    "lizard": {
+        "spock": "Lizard poisons Spock",
+        "paper": "Lizard eats Paper"
+    },
+    "spock": {
+        "scissors": "Spock smashes Scissors",
+        "rock": "Spock vaporizes Rock"
+    }
+};
 
 /**
  * Main game function, with one parameter: the user choice
@@ -80,30 +102,13 @@ function updateResultMessage(result) {
 function updateRuleMessage(userSelection, computerSelection) {
     let ruleMessage = document.getElementById("rule-applied");
 
-    if (userSelection === "rock" && computerSelection === "lizard") {
-        ruleMessage.textContent = "Rock crushes Lizard";
-    } else if (userSelection === "rock" && computerSelection === "scissors") {
-        ruleMessage.textContent = "Rock crushes Scissors";
-    } else if (userSelection === "paper" && computerSelection === "rock") {
-        ruleMessage.textContent = "Paper covers Rock";
-    } else if (userSelection === "paper" && computerSelection === "spock") {
-        ruleMessage.textContent = "Paper disproves Spock";
-    } else if (userSelection === "scissors" && computerSelection === "paper") {
-        ruleMessage.textContent = "Scissors cuts Paper";
-    } else if (userSelection === "scissors" && computerSelection === "lizard") {
-        ruleMessage.textContent = "Scissors decapitates Lizard";
-    } else if (userSelection === "lizard" && computerSelection === "spock") {
-        ruleMessage.textContent = "Lizard poisons Spock";
-    } else if (userSelection === "lizard" && computerSelection === "paper") {
-        ruleMessage.textContent = "Lizard eats Paper";
-    } else if (userSelection === "spock" && computerSelection === "scissors") {
-        ruleMessage.textContent = "Spock smashes Scissors";
-    } else if (userSelection === "spock" && computerSelection === "rock") {
-        ruleMessage.textContent = "Spock vaporizes Rock";
-    } else if (userSelection === computerSelection) {
-        ruleMessage.textContent = "Kirk synchronised his mind to yours, it's a draw!";
+    if (userSelection === computerSelection) {
+        ruleMessage.textContent = "Mind match, draw!";
+    //To accesses the specific rule text within the rules object, then check the interaction between userSelection and computerSelection.
+    } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
+        ruleMessage.textContent = rules[userSelection][computerSelection];
     } else {
-        ruleMessage.textContent = "Oops!";
+        ruleMessage.textContent = rules[computerSelection][userSelection];
     }
 }
 
