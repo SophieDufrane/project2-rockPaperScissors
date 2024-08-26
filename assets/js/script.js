@@ -18,7 +18,7 @@ const computerIcon = document.getElementById("computer-selection");
 
 /**
  * Main game funtion, with one parameter: the user choice
- * which is the data-choice of the button selected (Rock, paper, scissors...)  
+ * which is the data-selection of the button selected (Rock, paper, scissors...)  
  */
 function runGame(userSelection) {
 	 
@@ -41,7 +41,21 @@ function runGame(userSelection) {
 
 
 function checkWinner (userSelection, computerSelection) {
+    if (userSelection === computerSelection) {
+        return "draw";
+    }
 
+    if (
+        (userSelection === "rock" && computerSelection === "lizard" || userSelection === "rock" && computerSelection === "scissors")
+        (userSelection === "paper" && computerSelection === "rock" || userSelection === "paper" && computerSelection === "spock")
+        (userSelection === "scissors" && computerSelection === "paper" || userSelection === "scissors" && computerSelection === "lizard")
+        (userSelection === "lizard" && computerSelection === "spock" || userSelection === "lizard" && computerSelection === "paper")
+        (userSelection === "spock" && computerSelection === "scissors" || userSelection === "spock" && computerSelection === "rock")
+    ) {
+        return "win";
+    } else {
+        return "lose"
+    }
 }
 
 
