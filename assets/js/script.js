@@ -38,6 +38,8 @@ function runGame(userSelection) {
 
     updateResultMessage(result);
 
+    updateRuleMessage(result);
+
     // Update scores (not implemented yet!!!!)
     updateScores(result);
 }
@@ -69,9 +71,19 @@ function updateResultMessage(result) {
     if (result === "win") {
         resultMessage.textContent = "You Win!";
     } else if (result === "lose") {
-        resultMessage.textContent = "You lose";
+        resultMessage.textContent = "Kirk beat you!";
     } else {
         resultMessage.textContent = "It's a draw";
+    }
+}
+
+function updateRuleMessage(result) {
+    let ruleMessage = document.getElementById("rule-applied");
+
+    if (userSelection === "rock" && computerSelection === "lizard") {
+        ruleMessage.textContent = "Rock crushes Lizard";
+    } else {
+        ruleMessage.textContent = "Another rule applies";
     }
 }
 
