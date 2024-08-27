@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-
 // Declare variable for DOM elements
 const selection = ["rock", "paper", "scissors", "lizard", "spock"];
 const userIcon = document.getElementById("user-selection");
@@ -112,6 +111,30 @@ function updateRuleMessage(userSelection, computerSelection) {
     }
 }
 
-function incrementScore() {
+/**
+ * Update the score based on the result
+ */
+function updateScores (result) {
+    if (result === "win") {
+        incrementUserScore(); 
+    } else if (result === "lose") {
+        incrementComputerScore();
+    }
+}
+
+/**
+ * Gets the current score from the DOM and increments it by 1
+ */
+function incrementUserScore() {
+
+    let oldScore = parseInt(document.getElementById("user-score").innerText);
+    document.getElementById("user-score").innerText = ++oldScore;
+
+}
+
+function incrementComputerScore() {
+
+    let oldScore = parseInt(document.getElementById("computer-score").innerText);
+    document.getElementById("computer-score").innerText = ++oldScore;
 
 }
