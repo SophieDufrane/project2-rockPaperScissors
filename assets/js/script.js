@@ -16,11 +16,20 @@ const PAPER = 1;
 const SCISSORS = 2;
 const LIZARD = 3;
 const SPOCK = 4;
-// Declare variable for DOM elements
-const selection = ["rock", "paper", "scissors", "lizard", "spock"];
+
+// Declare other variables for DOM elements
+const selection = {
+    [ROCK]: "rock", 
+    [PAPER]:"paper", 
+    [SCISSORS]:"scissors", 
+    [LIZARD]:"lizard", 
+    [SPOCK]:"spock"
+};
+
 const userIcon = document.getElementById("user-selection");
 const computerIcon = document.getElementById("computer-selection");
 
+// Declare an object to address all the combinations possible
 const rules = {
     [ROCK]: {
         [LIZARD]: "Rock crushes Lizard",
@@ -60,7 +69,7 @@ function runGame(userSelection) {
 	userIcon.alt = selection[userSelection];
 	
      // Get the computer's selection by creating a random number between 0 and the selection.length
-	let computerSelection = Math.floor(Math.random() * selection.length);
+	let computerSelection = Math.floor(Math.random() * Object.keys(selection).length);
 	
     // Update the computer's selected image
 	computerIcon.src = `assets/images/${selection[computerSelection]}.png`;
@@ -73,7 +82,6 @@ function runGame(userSelection) {
 
     updateRuleMessage(userSelection,computerSelection);
 
-    // Update scores (not implemented yet!!!!)
     updateScores(result);
 }
 
