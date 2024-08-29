@@ -10,7 +10,8 @@
 }
 
 /* General body styles */
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -161,7 +162,11 @@ header {
     /* Ensures the image covers the area without distortion */
 }
 
-.images-area>.result-images:first-child {
+.result-images:first-child {
+    border: solid 5px blue;
+}
+
+.result-images:nth-child(2) {
     border: solid 5px #fedf4e;
 }
 

@@ -14,8 +14,12 @@
         <h1>Rock Paper Scissors Lizard Spock</h1>
     </header>
 
-    <!-- Game area with console (buttons) and result with 2 images -->
+    <!-- Game area -->
     <div class="game-area">
+        <p>Make your move, see if you can beat Captain Kirk!</p>
+        <p>Click on one of the options below, you have 5 tries:</p>
+
+        <!-- Console section with options (buttons) to play the game -->
         <div class="console-section">
             <button data-selection="0">
                 <img src="assets/images/rock.png" alt="Rock icon">
@@ -34,6 +38,7 @@
             </button>
         </div>
 
+        <!-- Result section with selection for user and computer, score and rules -->
         <div class="result-section">
             <div class="score-area">
                 <span class="glow-text" id="result-message">Score</span>
@@ -45,21 +50,26 @@
             </div>
             <div class="images-area">
                 <div class="result-images">
-                    <img id="user-selection" src="assets/images/spock.png" alt="User selection icon">
+                    <img id="user-selection" src="assets/images/spockPortrait.jpg" alt="User selection icon">
                 </div>
                 <div class="result-rules">
                     <span id="rule-applied">Let's Play!</span>
                 </div>
                 <div class="result-images">
-                    <img id="computer-selection" src="assets/images/lizard.png" alt="Computer selection icon">
+                    <img id="computer-selection" src="assets/images/kirkPortrait.jpg" alt="Computer selection icon">
                 </div>
             </div>
         </div>
+
+        <!-- Restart game section -->
+        <div>
+            <button>Restart!</button>
+        </div>
     </div>
-    
+
     <!-- Footer -->
     <footer>
-        <p>Make your move and see if you can beat Captain Kirk!</p>
+        <p>Footer section</p>
         </p>
     </footer>
 
