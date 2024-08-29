@@ -1,6 +1,6 @@
 // Wait for the DOM to finish loading before running the game
 document.addEventListener("DOMContentLoaded", function() {
-    let buttons = document.getElementsByTagName("button");
+    let buttons = document.getElementsByClassName("button-selection");
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
@@ -38,8 +38,13 @@ const rules = {
 };
 
 /**
- * Main game function, with one parameter: the user choice
- * which is the data-selection of the button selected (Rock, paper, scissors...)  
+ * Runs the main game logic.
+ * 
+ * @param {string} userSelection - The user's choice, which corresponds to the data-selection of the button selected (e.g. "Rock", "Paper", "Scissors", "Lizard", or "Spock").
+ * 
+ * Updates the images for both the user and the computer based on their selections.
+ * Determines the winner by comparing the user's selection with a randomly generated computer selection.
+ * Calls functions to update the result message, rule message, and (future implementation) scores.
  */
 function runGame(userSelection) {
 	 
@@ -47,7 +52,7 @@ function runGame(userSelection) {
     userIcon.src = `assets/images/${selection[userSelection]}.png`;
 	userIcon.alt = selection[userSelection];
 	
-     // Get the computer selecyion by creation a random number between 0 and 4
+     // Get the computer selection by creation a random number between 0 and 4
 	let computerSelection = Math.floor(Math.random() * 5);
 	
     // Update the computer's selected image
@@ -72,14 +77,8 @@ function checkWinner(userSelection, computerSelection) {
     if (userSelection === computerSelection) {
         return "draw";
     }
-
-    if (
-        (userSelection === "rock" && (computerSelection === "lizard" || computerSelection === "scissors")) ||
-        (userSelection === "paper" && (computerSelection === "rock" || computerSelection === "spock")) ||
-        (userSelection === "scissors" && (computerSelection === "paper" || computerSelection === "lizard")) ||
-        (userSelection === "lizard" && (computerSelection === "spock" || computerSelection === "paper")) ||
-        (userSelection === "spock" && (computerSelection === "scissors" || computerSelection === "rock"))
-    ) {
+// Check if the userSelection beats the computerSelection based on the rules object
+    if (rules[userSelection] && rules[userSelection][computerSelection]) {
         return "win";
     } else {
         return "lose";
