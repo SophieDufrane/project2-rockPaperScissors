@@ -10,30 +10,37 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// Declare constant for each choice to avoid mistakes along the code
+const ROCK = 0;
+const PAPER = 1;
+const SCISSORS = 2;
+const LIZARD = 3;
+const SPOCK = 4;
 // Declare variable for DOM elements
 const selection = ["rock", "paper", "scissors", "lizard", "spock"];
 const userIcon = document.getElementById("user-selection");
 const computerIcon = document.getElementById("computer-selection");
+
 const rules = {
-    "rock": {
-        "lizard": "Rock crushes Lizard",
-        "scissors": "Rock crushes Scissors"
+    [ROCK]: {
+        [LIZARD]: "Rock crushes Lizard",
+        [SCISSORS]: "Rock crushes Scissors"
     },
-    "paper": {
-        "rock": "Paper covers Rock",
-        "spock": "Paper disproves Spock"
+    [PAPER]: {
+        [ROCK]: "Paper covers Rock",
+        [SPOCK]: "Paper disproves Spock"
     },
-    "scissors": {
-        "paper": "Scissors cuts Paper",
-        "lizard": "Scissors decapitates Lizard"
+    [SCISSORS]: {
+        [PAPER]: "Scissors cuts Paper",
+        [LIZARD]: "Scissors decapitates Lizard"
     },
-    "lizard": {
-        "spock": "Lizard poisons Spock",
-        "paper": "Lizard eats Paper"
+    [LIZARD]: {
+        [SPOCK]: "Lizard poisons Spock",
+        [PAPER]: "Lizard eats Paper"
     },
-    "spock": {
-        "scissors": "Spock smashes Scissors",
-        "rock": "Spock vaporizes Rock"
+    [SPOCK]: {
+        [SCISSORS]: "Spock smashes Scissors",
+        [ROCK]: "Spock vaporizes Rock"
     }
 };
 
@@ -52,19 +59,19 @@ function runGame(userSelection) {
     userIcon.src = `assets/images/${selection[userSelection]}.png`;
 	userIcon.alt = selection[userSelection];
 	
-     // Get the computer selection by creation a random number between 0 and 4
-	let computerSelection = Math.floor(Math.random() * 5);
+     // Get the computer's selection by creating a random number between 0 and the selection.length
+	let computerSelection = Math.floor(Math.random() * selection.length);
 	
     // Update the computer's selected image
 	computerIcon.src = `assets/images/${selection[computerSelection]}.png`;
 	computerIcon.alt = selection[computerSelection];
 	
-    // check result with the function checkWinner with 2 variables, the user and computer selection.
-    let result = checkWinner(selection[userSelection],selection[computerSelection]);
+    // check result with the function checkWinner with 2 variables, the user and computer selection
+    let result = checkWinner(userSelection,computerSelection);
 
     updateResultMessage(result);
 
-    updateRuleMessage(selection[userSelection],selection[computerSelection]);
+    updateRuleMessage(userSelection,computerSelection);
 
     // Update scores (not implemented yet!!!!)
     updateScores(result);
