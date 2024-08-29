@@ -16,24 +16,25 @@
 
     <!-- Game area -->
     <div class="game-area">
-        <p>Make your move, see if you can beat Captain Kirk!</p>
-        <p>Click on one of the options below, you have 5 tries:</p>
-
+        <div class="about-game-section">
+            <h2>Make your move and see if you can outsmart Captain Kirk!</h2>
+            <p>Click one of the icons; you have 5 chances:</p>
+        </div>
         <!-- Console section with options (buttons) to play the game -->
         <div class="console-section">
-            <button data-selection="0">
+            <button class="button-selection" data-selection="0">
                 <img src="assets/images/rock.png" alt="Rock icon">
             </button>
-            <button data-selection="1">
+            <button class="button-selection" data-selection="1">
                 <img src="assets/images/paper.png" alt="Paper icone">
             </button>
-            <button data-selection="2">
+            <button class="button-selection" data-selection="2">
                 <img src="assets/images/scissors.png" alt="Scissors icone">
             </button>
-            <button data-selection="3">
+            <button class="button-selection" data-selection="3">
                 <img src="assets/images/lizard.png" alt="Lizard icone">
             </button>
-            <button data-selection="4">
+            <button class="button-selection" data-selection="4">
                 <img src="assets/images/spock.png" alt="Spock icone">
             </button>
         </div>
@@ -63,7 +64,7 @@
 
         <!-- Restart game section -->
         <div>
-            <button>Restart!</button>
+            <button id="restart-button">Restart!</button>
         </div>
     </div>
 
