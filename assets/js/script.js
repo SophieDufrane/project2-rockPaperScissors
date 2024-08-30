@@ -26,9 +26,6 @@ const selection = {
     [SPOCK]:"spock"
 };
 
-const userIcon = document.getElementById("user-selection");
-const computerIcon = document.getElementById("computer-selection");
-
 // Declare an object to address all the combinations possible
 const rules = {
     [ROCK]: {
@@ -52,6 +49,11 @@ const rules = {
         [ROCK]: "Spock vaporizes Rock"
     }
 };
+
+const userIcon = document.getElementById("user-selection");
+const computerIcon = document.getElementById("computer-selection");
+// Global variable to keep track of the round number
+let roundNumber = 1;
 
 /**
  * Runs the main game logic.
@@ -79,10 +81,11 @@ function runGame(userSelection) {
     let result = checkWinner(userSelection,computerSelection);
 
     updateResultMessage(result);
-
     updateRuleMessage(userSelection,computerSelection);
-
     updateScores(result);
+
+    // check when the game is over (either player reaches 5 points)
+    checkGameOver();
 }
 
 /**
@@ -101,7 +104,7 @@ function checkWinner(userSelection, computerSelection) {
 }
 
 function updateResultMessage(result) {
-    let resultMessage = document.getElementById("result-message");
+    let resultMessage = document.getElementById("game-status");
 
     if (result === "win") {
         resultMessage.textContent = "You Win!";
@@ -150,5 +153,18 @@ function incrementComputerScore() {
 
     let oldScore = parseInt(document.getElementById("computer-score").innerText);
     document.getElementById("computer-score").innerText = ++oldScore;
+}
 
+/**
+ * Check if either the user or computer has reached 5 points, ending the game if true
+ */
+function checkGameOver() {
+    let userScore = parseInt(document.getElementById("user-score").innerText);
+    let computerScore = parseInt(document.getElementById("computer-score").innerText);
+
+    if (userScore >= 5) {
+        resultMessage.textContent = "You Win!";
+    } else if (computerScore >= 5) {
+        resultMessage.textContent = "Kirk beat you!";
+    } 
 }

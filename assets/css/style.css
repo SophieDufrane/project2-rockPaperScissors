@@ -123,7 +123,7 @@ header {
     border-radius: 8px;
 }
 
-#result-message {
+#game-status {
     font-family: "Righteous", sans-serif;
     font-size: 1.5rem;
     color: #fedf4e;
