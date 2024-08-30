@@ -17,10 +17,13 @@
     <!-- Game area -->
     <div class="game-area">
         <div class="about-game-section">
-            <h2>Click an icon to play — first to 5 points wins!</h2>
+            <h2>Click an icon to play, first to 5 points wins!</h2>
+            <button id="rules-toggle">View Rules</button>
+            <div id="rules-section" style="display: none;">
             <p>Scissors cuts Paper. Paper covers Rock. Rock crushes Lizard. Lizard poisons Spock. 
                 Spock smashes Scissors. Scissors decapitates Lizard. Lizard eats Paper. 
                 Paper disproves Spock. Spock vaporizes Rock. Rock crushes Scissors.</p>
+            </div>
         </div>
         <!-- Console section with options (buttons) to play the game -->
         <div class="console-section">
@@ -46,8 +49,10 @@
             <div class="score-area">
                 <span class="glow-text" id="game-status">Score</span>
                 <div class="score-line">
+                    <p>You </p>
                     <span id="user-score">0</span>
                     <p> : </p>
+                    <p>Kirk </p>
                     <span id="computer-score">0</span>
                 </div>
             </div>
