@@ -52,7 +52,7 @@ const rules = {
 
 const userIcon = document.getElementById("user-selection");
 const computerIcon = document.getElementById("computer-selection");
-// Global variable to keep track of the round number
+// Variable to keep track of the round number
 let roundNumber = 1;
 
 /**
@@ -103,16 +103,13 @@ function checkWinner(userSelection, computerSelection) {
     }
 }
 
-function updateResultMessage(result) {
-    let resultMessage = document.getElementById("game-status");
-
-    if (result === "win") {
-        resultMessage.textContent = "You Win!";
-    } else if (result === "lose") {
-        resultMessage.textContent = "Kirk beat you!";
-    } else {
-        resultMessage.textContent = "It's a draw";
-    }
+/**
+ * Update the game status to display the round number
+ */
+function updateGameStatus() {
+    let gameStatus = document.getElementById("game-status");
+    gameStatus.textContent = `Round ${roundNumber}`;
+    roundNumber++;
 }
 
 function updateRuleMessage(userSelection, computerSelection) {
@@ -120,7 +117,7 @@ function updateRuleMessage(userSelection, computerSelection) {
 
     if (userSelection === computerSelection) {
         ruleMessage.textContent = "Mind match, draw!";
-    //To accesses the specific rule text within the rules object, then check the interaction between userSelection and computerSelection.
+    //Accesses the specific rule within the rules object, then check the combination between userSelection and computerSelection.
     } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
         ruleMessage.textContent = rules[userSelection][computerSelection];
     } else {
@@ -157,14 +154,16 @@ function incrementComputerScore() {
 
 /**
  * Check if either the user or computer has reached 5 points, ending the game if true
+ * Display final result message
  */
 function checkGameOver() {
     let userScore = parseInt(document.getElementById("user-score").innerText);
     let computerScore = parseInt(document.getElementById("computer-score").innerText);
+    let gameStatus = document.getElementById("game-status");
 
     if (userScore >= 5) {
-        resultMessage.textContent = "You Win!";
+        gameStatus.textContent = "You Win!";
     } else if (computerScore >= 5) {
-        resultMessage.textContent = "Kirk beat you!";
+        gameStatus.textContent = "Kirk beat you!";
     } 
 }
