@@ -80,7 +80,7 @@ function runGame(userSelection) {
     // check result with the function checkWinner with 2 variables, the user and computer selection
     let result = checkWinner(userSelection,computerSelection);
 
-    updateResultMessage(result);
+    updateGameStatus(result);
     updateRuleMessage(userSelection,computerSelection);
     updateScores(result);
 
