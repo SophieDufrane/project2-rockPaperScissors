@@ -14,18 +14,20 @@
         <h1>Rock Paper Scissors Lizard Spock</h1>
     </header>
 
-    <!-- Game area -->
+    <!-- Game area: Contains all elements related to the Rock Paper Scissors Lizard Spock game -->
     <div class="game-area">
+
+        <!-- About Game Section: toggle function to visualise the rules -->
         <div class="about-game-section">
             <h2>Click an icon to play, first to 5 points wins!</h2>
             <button id="rules-toggle">View Rules</button>
             <div id="rules-section" style="display: none;">
-            <p>Scissors cuts Paper. Paper covers Rock. Rock crushes Lizard. Lizard poisons Spock. 
-                Spock smashes Scissors. Scissors decapitates Lizard. Lizard eats Paper. 
-                Paper disproves Spock. Spock vaporizes Rock. Rock crushes Scissors.</p>
+                <p>Scissors cuts Paper. Paper covers Rock. Rock crushes Lizard. Lizard poisons Spock.
+                    Spock smashes Scissors. Scissors decapitates Lizard. Lizard eats Paper.
+                    Paper disproves Spock. Spock vaporizes Rock. Rock crushes Scissors.</p>
             </div>
         </div>
-        <!-- Console section with options (buttons) to play the game -->
+        <!-- Console section: options (buttons/icons) to play the game -->
         <div class="console-section">
             <button class="button-selection" data-selection="0">
                 <img src="assets/images/rock.png" alt="Rock icon">
@@ -44,7 +46,7 @@
             </button>
         </div>
 
-        <!-- Result section with selection for user and computer, score and rules -->
+        <!-- Result section: contains scores and game rounds, user's selection and computer's selection, the rule that applies for each round -->
         <div class="result-section">
             <div class="score-area">
                 <span class="glow-text" id="game-status">Score</span>
