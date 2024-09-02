@@ -1,32 +1,39 @@
 // Wait for the DOM to finish loading before running the game
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByClassName("button-selection");
 
+    // Add click event listener to each button
     for (let button of buttons) {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             let userSelection = parseInt(this.getAttribute("data-selection"));
             runGame(userSelection);
         });
     }
 });
 
-// Declare constant for each choice to avoid mistakes along the code
+// Add click event listener to the restart button
+document.getElementById("restart-button").addEventListener("click", resetGame);
+
+// Add click event listener to the rules toggle button
+document.getElementById("rules-toggle").addEventListener("click", toggleRulesSection);
+
+// Declare constants for each choice to avoid mistakes along the code
 const ROCK = 0;
 const PAPER = 1;
 const SCISSORS = 2;
 const LIZARD = 3;
 const SPOCK = 4;
 
-// Declare other variables for DOM elements
+// Map the constants to their corresponding string values
 const selection = {
-    [ROCK]: "rock", 
-    [PAPER]:"paper", 
-    [SCISSORS]:"scissors", 
-    [LIZARD]:"lizard", 
-    [SPOCK]:"spock"
+    [ROCK]: "rock",
+    [PAPER]: "paper",
+    [SCISSORS]: "scissors",
+    [LIZARD]: "lizard",
+    [SPOCK]: "spock"
 };
 
-// Declare an object to address all the combinations possible
+// Define the rules of the game with each possible combinations
 const rules = {
     [ROCK]: {
         [LIZARD]: "Rock crushes Lizard",
@@ -48,16 +55,26 @@ const rules = {
         [SCISSORS]: "Spock smashes Scissors",
         [ROCK]: "Spock vaporizes Rock"
     }
-};
+}
 
+// Get DOM elements for user and computer selections
 const userIcon = document.getElementById("user-selection");
 const computerIcon = document.getElementById("computer-selection");
-// Variable to keep track of the round number
+
+// Initialise a variable to keep track of the round number
 let roundNumber = 1;
 
-document.getElementById("rules-toggle").addEventListener("click",toggleRulesSection);
-
-function toggleRulesSection () {
+/**
+ * Toggle the visibility of the rules section on the page.
+ * 
+ * When the rules section is hidden, the function will display it and
+ * change the toggle's button text to "Hidden rules".
+ * When the rules sction is visible, the function will hide it and
+ * change the toggle's button text to "View rules".
+ * 
+ * This function is triggered by a click on the toggle button.
+ */
+function toggleRulesSection() {
     let rulesSection = document.getElementById("rules-section");
     if (rulesSection.style.display === "none") {
         rulesSection.style.display = "block";
@@ -66,50 +83,54 @@ function toggleRulesSection () {
         rulesSection.style.display = "none";
         this.textContent = "View rules"
     }
-};
-
+}
 
 /**
- * Runs the main game logic.
+ * Run the main game logic.
  * 
  * @param {string} userSelection - The user's choice, which corresponds to the data-selection of the button selected (e.g. "Rock", "Paper", "Scissors", "Lizard", or "Spock").
  * 
- * Updates the images for both the user and the computer based on their selections.
- * Determines the winner by comparing the user's selection with a randomly generated computer selection.
- * Calls functions to update the result message, rule message, and (future implementation) scores.
+ * Update the images for both the user and the computer based on their selections.
+ * Determine the winner by comparing the user's selection with a randomly generated computer selection.
+ * Call functions to update the result message, rule message, and (future implementation) scores.
  */
 function runGame(userSelection) {
-	 
+
     // Update the user's selected image
     userIcon.src = `assets/images/${selection[userSelection]}.png`;
-	userIcon.alt = selection[userSelection];
-	
-     // Get the computer's selection by creating a random number between 0 and the selection.length
-	let computerSelection = Math.floor(Math.random() * Object.keys(selection).length);
-	
-    // Update the computer's selected image
-	computerIcon.src = `assets/images/${selection[computerSelection]}.png`;
-	computerIcon.alt = selection[computerSelection];
-	
-    // check result with the function checkWinner with 2 variables, the user and computer selection
-    let result = checkWinner(userSelection,computerSelection);
+    userIcon.alt = selection[userSelection];
 
+    // Get the computer's selection by generating a random number between 0 and the number of options available
+    let computerSelection = Math.floor(Math.random() * Object.keys(selection).length);
+
+    // Update the computer's selected image
+    computerIcon.src = `assets/images/${selection[computerSelection]}.png`;
+    computerIcon.alt = selection[computerSelection];
+
+    // Determine the result of the round
+    let result = checkWinner(userSelection, computerSelection);
+
+    // Update Game status, result message and scores based on result
     updateGameStatus(result);
-    updateRuleMessage(userSelection,computerSelection);
+    updateRuleMessage(userSelection, computerSelection);
     updateScores(result);
 
-    // check when the game is over (either player reaches 5 points)
+    // Check if the game is over (either player reaches 5 points)
     checkGameOver();
 }
 
 /**
- * Check combinations and determine the winning conditions and results based on the rules
+ * Determine the winning conditions and results based on the rules
+ * 
+ * @param {number} userSelection - The user's selection
+ * @param {number} computerSelection - The computer's selection
+ * @return {string} The result of the round ("win", "lose", "draw")
  */
 function checkWinner(userSelection, computerSelection) {
     if (userSelection === computerSelection) {
         return "draw";
     }
-// Check if the userSelection beats the computerSelection based on the rules object
+    // Check if the userSelection beats the computerSelection based on the rules object
     if (rules[userSelection] && rules[userSelection][computerSelection]) {
         return "win";
     } else {
@@ -118,7 +139,7 @@ function checkWinner(userSelection, computerSelection) {
 }
 
 /**
- * Update the game status to display the round number
+ * Update the game status to display the current round number
  */
 function updateGameStatus() {
     let gameStatus = document.getElementById("game-status");
@@ -126,12 +147,18 @@ function updateGameStatus() {
     roundNumber++;
 }
 
+/**
+ * Update the rule message based on the user's selection and computer's one
+ * 
+ * @param {number} userSelection - The user's selection
+ * @param {number} computerSelection - The computer's selection
+ */
 function updateRuleMessage(userSelection, computerSelection) {
     let ruleMessage = document.getElementById("rule-applied");
 
     if (userSelection === computerSelection) {
         ruleMessage.textContent = "Mind match, draw!";
-    //Accesses the specific rule within the rules object, then check the combination between userSelection and computerSelection.
+        //Accesses the specific rule within the rules object, then check the combination between userSelection and computerSelection.
     } else if (rules[userSelection] && rules[userSelection][computerSelection]) {
         ruleMessage.textContent = rules[userSelection][computerSelection];
     } else {
@@ -140,18 +167,20 @@ function updateRuleMessage(userSelection, computerSelection) {
 }
 
 /**
- * Update the score based on the result
+ * Update the score based on the result of the current round
+ * 
+ * @param {string} The result of the round ("win", "lose", "draw")
  */
-function updateScores (result) {
+function updateScores(result) {
     if (result === "win") {
-        incrementUserScore(); 
+        incrementUserScore();
     } else if (result === "lose") {
         incrementComputerScore();
     }
 }
 
 /**
- * Gets the current score from the DOM and increments it by 1
+ * Increment the user's score by 1
  */
 function incrementUserScore() {
 
@@ -160,6 +189,9 @@ function incrementUserScore() {
 
 }
 
+/**
+ * Increment the computer's score by 1
+ */
 function incrementComputerScore() {
 
     let oldScore = parseInt(document.getElementById("computer-score").innerText);
@@ -168,7 +200,7 @@ function incrementComputerScore() {
 
 /**
  * Check if either the user or computer has reached 5 points, ending the game if true
- * Display final result message
+ * Display the final result message
  */
 function checkGameOver() {
     let userScore = parseInt(document.getElementById("user-score").innerText);
@@ -179,5 +211,31 @@ function checkGameOver() {
         gameStatus.textContent = "You Win!";
     } else if (computerScore >= 5) {
         gameStatus.textContent = "Kirk beat you!";
-    } 
+    }
+}
+
+/**
+ * Reset the game to default value and images
+ * 
+ * This function resets the scores, the round number, the message that displays the rule that applies on last round.
+ * It also reset the images of the user and computer selections to defaut state 
+ */
+function resetGame() {
+
+    // Reset the scores
+    document.getElementById("user-score").innerText = 0;
+    document.getElementById("computer-score").innerText = 0;
+
+    // Reset the round number
+    roundNumber = 1;
+
+    // Clear the game status and rule message
+    document.getElementById("game-status").textContent = `Score`;
+    document.getElementById("rule-applied").textContent = `Let's Play!`;
+
+    // Reset the images to defaut state
+    userIcon.src = `assets/images/spockPortrait.jpg`
+    userIcon.alt = `User selection icon`
+    computerIcon.src = `assets/images/kirkPortrait.jpg`
+    computerIcon.alt = `Computer selection icon`
 }
