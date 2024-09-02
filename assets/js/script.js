@@ -96,6 +96,14 @@ function toggleRulesSection() {
  */
 function runGame(userSelection) {
 
+    // Check if the game is already over (one of the players reached 5 points)
+    let userScore = parseInt(document.getElementById("user-score").innerText);
+    let computerScore = parseInt(document.getElementById("computer-score").innerText);
+
+    if (userScore >= 5 || computerScore >= 5) {
+        return; // Do nothing as the game is over
+    }
+
     // Update the user's selected image
     userIcon.src = `assets/images/${selection[userSelection]}.png`;
     userIcon.alt = selection[userSelection];
