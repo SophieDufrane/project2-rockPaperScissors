@@ -244,6 +244,10 @@ footer {
         margin-top: 40px;
     }
 
+    #rules-section {
+        width: 80%;
+    }
+
     .button-selection {
         width: 120px;
         height: 120px;
@@ -298,7 +302,7 @@ footer {
 
 /* media queries for screens 992px and larger */
 @media (min-width: 992px) {
-    
+
     header {
         font-size: 1.8rem;
         padding: 25px;
@@ -306,6 +310,11 @@ footer {
 
     .game-area {
         width: 75%;
+    }
+    
+    #rules-section {
+        width: 70%;
+        font-size: 1.2rem;
     }
 
     footer {
