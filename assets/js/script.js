@@ -55,6 +55,20 @@ const computerIcon = document.getElementById("computer-selection");
 // Variable to keep track of the round number
 let roundNumber = 1;
 
+document.getElementById("rules-toggle").addEventListener("click",toggleRulesSection);
+
+function toggleRulesSection () {
+    let rulesSection = document.getElementById("rules-section");
+    if (rulesSection.style.display === "none") {
+        rulesSection.style.display = "block";
+        this.textContent = "Hide rules"
+    } else {
+        rulesSection.style.display = "none";
+        this.textContent = "View rules"
+    }
+};
+
+
 /**
  * Runs the main game logic.
  * 

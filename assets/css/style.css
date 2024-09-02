@@ -78,6 +78,11 @@ header {
     border: solid 1px rgba(255, 255, 255, 0.589);
 }
 
+#rules-section {
+    font-family: "raleway", sans-serif;
+    font-size: 0.9rem;
+}
+
 /* Console Section */
 .console-section {
     display: flex;
