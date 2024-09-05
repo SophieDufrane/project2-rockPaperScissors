@@ -1,21 +1,26 @@
-// Wait for the DOM to finish loading before running the game
-document.addEventListener("DOMContentLoaded", function () {
+// Wait for the DOM to finish loading before running the game.
+// Source: https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master
+// Author: NielMc
+// This function was adapted from [love-maths-2.0-sourcecode]. 
+// MOdifications: in this version, the event listener retrieves the data-selection from the clicked button 
+// then call the runGame function with userSelection as an argument.
+document.addEventListener("DOMContentLoaded", function prepareGame() {
     let buttons = document.getElementsByClassName("button-selection");
 
     // Add click event listener to each button
     for (let button of buttons) {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", function handleUserSelection() {
             let userSelection = parseInt(this.getAttribute("data-selection"));
             runGame(userSelection);
         });
     }
 });
 
-// Add click event listener to the restart button
-document.getElementById("restart-button").addEventListener("click", resetGame);
-
-// Add click event listener to the rules toggle button
+// Add click event listener to the rules button that calls the toggleRulesSection function
 document.getElementById("rules-toggle").addEventListener("click", toggleRulesSection);
+
+// Add click event listener to the restart button that calls the resetGame function
+document.getElementById("restart-button").addEventListener("click", resetGame);
 
 // Declare constants for each choice to avoid mistakes along the code
 const ROCK = 0;
