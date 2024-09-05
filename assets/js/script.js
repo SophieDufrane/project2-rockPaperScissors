@@ -55,7 +55,7 @@ const rules = {
         [SCISSORS]: "Spock smashes Scissors",
         [ROCK]: "Spock vaporizes Rock"
     }
-}
+};
 
 // Get DOM elements for user and computer selections
 const userIcon = document.getElementById("user-selection");
@@ -78,10 +78,10 @@ function toggleRulesSection() {
     let rulesSection = document.getElementById("rules-section");
     if (rulesSection.style.display === "none") {
         rulesSection.style.display = "block";
-        this.textContent = "Hide rules"
+        this.textContent = "Hide rules";
     } else {
         rulesSection.style.display = "none";
-        this.textContent = "View rules"
+        this.textContent = "View rules";
     }
 }
 
@@ -242,8 +242,8 @@ function resetGame() {
     document.getElementById("rule-applied").textContent = `Let's Play!`;
 
     // Reset the images to defaut state
-    userIcon.src = `assets/images/spockPortrait.jpg`
-    userIcon.alt = `User selection icon`
-    computerIcon.src = `assets/images/kirkPortrait.jpg`
-    computerIcon.alt = `Computer selection icon`
+    userIcon.src = `assets/images/spockPortrait.jpg`;
+    userIcon.alt = `User selection icon`;
+    computerIcon.src = `assets/images/kirkPortrait.jpg`;
+    computerIcon.alt = `Computer selection icon`;
 }
