@@ -97,12 +97,11 @@ function toggleRulesSection() {
 /**
  * Run the main game logic.
  * 
- * @param {string} userSelection - The user's choice, which corresponds to the data-selection of the icon (button) selected (e.g. "Rock", "Paper", "Scissors", "Lizard", or "Spock").
+ * @param {string} userSelection - The user's choice, which corresponds to the data-selection of the button selected (e.g. "Rock", "Paper", "Scissors", "Lizard", or "Spock").
  * 
- * Prevent the game from continuing after a player reaches 5 points.
- * Update the images for both the user and the computer based on their selections.
- * Determine the winner by comparing the user's selection with a randomly generated computer's selection.
- * Call functions to update the result message, rule message, and scores.
+ * Check if the game is over by reaching the maximum score.
+ * If over, do nothing.
+ * Update selected images, result and scores for each round of the game.
  */
 function runGame(userSelection) {
 
@@ -125,15 +124,15 @@ function runGame(userSelection) {
     computerIcon.src = `assets/images/${selection[computerSelection]}.png`;
     computerIcon.alt = selection[computerSelection];
 
-    // Determine the result of the round
+    // Determine the result of the round by calling the function checkWinner
     let result = checkWinner(userSelection, computerSelection);
 
-    // Update Game status, result message and scores based on result
+    // Update Game status, result message and scores
     updateGameStatus(result);
     updateRuleMessage(userSelection, computerSelection);
     updateScores(result);
 
-    // Check if the game is over (either player reaches 5 points)
+    // Check if the game is over by calling the function checkGameOver
     checkGameOver();
 }
 
@@ -187,37 +186,33 @@ function updateRuleMessage(userSelection, computerSelection) {
 /**
  * Update the score based on the result of the current round
  * 
- * @param {string} The result of the round ("win", "lose", "draw")
+ * @param {string} result - The result of the round ("win", "lose", "draw")
  */
 function updateScores(result) {
+    // If the player wins the round, increment the user's score
     if (result === "win") {
-        incrementUserScore();
-    } else if (result === "lose") {
-        incrementComputerScore();
+        incrementScore("user-score");
+    } 
+    // If the computer wins the round, increment the computer's score
+    else if (result === "lose") {
+        incrementScore("computer-score");
     }
 }
 
 /**
- * Increment the user's score by 1
+ * Increment the score for either the user or the computer.
+ * 
+ * @param {string} player - The ID of the element whose score to increment ("user-score or "computer-score")
  */
-function incrementUserScore() {
+function incrementScore(player) {
 
-    let oldScore = parseInt(document.getElementById("user-score").innerText);
-    document.getElementById("user-score").innerText = ++oldScore;
-
+    let scoreElement = document.getElementById(player);
+    let oldScore = parseInt(scoreElement.innerText);
+    scoreElement.innerText = ++oldScore;
 }
 
 /**
- * Increment the computer's score by 1
- */
-function incrementComputerScore() {
-
-    let oldScore = parseInt(document.getElementById("computer-score").innerText);
-    document.getElementById("computer-score").innerText = ++oldScore;
-}
-
-/**
- * Check if either the user or computer has reached 5 points, ending the game if true
+ * Check if either the user or computer has reached max points, ending the game if true
  * Display the final result message
  */
 function checkGameOver() {
