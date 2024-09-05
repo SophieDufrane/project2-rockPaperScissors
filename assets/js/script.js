@@ -1,7 +1,7 @@
 // Wait for the DOM to finish loading before running the game.
 // Source: https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master
 // Author: NielMc
-// This function was adapted from [love-maths-2.0-sourcecode]. 
+// This was adapted from [love-maths-2.0-sourcecode]. 
 // Modifications: in this version, the event listener retrieves the data-selection from the clicked button 
 // then call the runGame function with userSelection as an argument.
 document.addEventListener("DOMContentLoaded", function prepareGame() {
@@ -62,9 +62,6 @@ const rules = {
     }
 };
 
-// Set the maximum score for a player to win the game
-const MAX_SCORE = 5;
-
 // Get DOM elements for user and computer selections
 const userIcon = document.getElementById("user-selection");
 const computerIcon = document.getElementById("computer-selection");
@@ -72,13 +69,16 @@ const computerIcon = document.getElementById("computer-selection");
 // Initialise a variable to keep track of the round number
 let roundNumber = 1;
 
+// Set the maximum score for a player to win the game
+const MAX_SCORE = 5;
+
 /**
  * Toggle the visibility of the rules section.
  * 
  * When the rules section is hidden, the function will display it and
- * change the toggle's button text to "Hidden rules".
+ * change the button text to "Hidden rules".
  * When the rules section is visible, the function will hide it and
- * change the toggle's button text to "View rules".
+ * change the button text to "View rules".
  * 
  * This function is triggered by a click on the toggle button.
  */
@@ -97,11 +97,11 @@ function toggleRulesSection() {
 /**
  * Run the main game logic.
  * 
- * @param {string} userSelection - The user's choice, which corresponds to the data-selection of the button selected (e.g. "Rock", "Paper", "Scissors", "Lizard", or "Spock").
+ * @param {string} userSelection - The user's choice, which corresponds to the data-selection (e.g. "Rock", "Paper", "Scissors", "Lizard", or "Spock").
  * 
  * Check if the game is over by reaching the maximum score.
  * If over, do nothing.
- * Update selected images, result and scores for each round of the game.
+ * If not, update selected images, result and scores for each round of the game.
  */
 function runGame(userSelection) {
 
@@ -127,10 +127,10 @@ function runGame(userSelection) {
     // Determine the result of the round by calling the function checkWinner
     let result = checkWinner(userSelection, computerSelection);
 
-    // Update Game status, result message and scores
+    // Update the game status, result message and scores
     updateGameStatus(result);
     updateRuleMessage(userSelection, computerSelection);
-    updateScores(result);
+    updateAndIncrementScores(result);
 
     // Check if the game is over by calling the function checkGameOver
     checkGameOver();
@@ -188,28 +188,23 @@ function updateRuleMessage(userSelection, computerSelection) {
  * 
  * @param {string} result - The result of the round ("win", "lose", "draw")
  */
-function updateScores(result) {
-    // If the player wins the round, increment the user's score
+function updateAndIncrementScores(result) {
+    let player;
+
+    // Determine which player's score to increment based on the result
     if (result === "win") {
-        incrementScore("user-score");
-    } 
-    // If the computer wins the round, increment the computer's score
-    else if (result === "lose") {
-        incrementScore("computer-score");
+        player = "user-score";
+    } else if (result === "lose") {
+        player = "computer-score";
+    }
+
+    if (player) {
+        let scoreElement = document.getElementById(player);
+        let oldScore = parseInt(scoreElement.innerText);
+        scoreElement.innerText = ++oldScore;
     }
 }
 
-/**
- * Increment the score for either the user or the computer.
- * 
- * @param {string} player - The ID of the element whose score to increment ("user-score or "computer-score")
- */
-function incrementScore(player) {
-
-    let scoreElement = document.getElementById(player);
-    let oldScore = parseInt(scoreElement.innerText);
-    scoreElement.innerText = ++oldScore;
-}
 
 /**
  * Check if either the user or computer has reached max points, ending the game if true
