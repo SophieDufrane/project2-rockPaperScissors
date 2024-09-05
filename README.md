@@ -21,7 +21,7 @@ Here the key features:
 ### Existing Features:
 
 - **Game Title and Header**
-  - The game title is display at the top, the font-family and font-size have been chosen to set up the theme: users immediately know they are in for a fun twist on the classic game.
+  - The game title is display at the top, the font-family and font-size have been chosen to set up the theme: users immediately know they are in for a fun twist on the classic game. The font-family and color scheme are inspired by the Star Trek universe, adding a thematic connection to the game's sci-fi roots.
 
   ![Header](assets/media/rock_paper_scissors_header.png)
 
@@ -31,17 +31,17 @@ Here the key features:
   ![Game Console](assets/media/rock_paper_scissors_console.png)
 
 - **Rules Section**
-  - The game includes a toggle button at the top of the game console, that hides or displays the rules. This feature ensures that players can quickly made their choice and learn the winning combinations. The toggle function improves the overall visual by decluttering the game screen.
+  - The game includes a toggle button at the top of the console section, that hides or displays the rules. This feature ensures that players can quickly made their choice and learn the winning combinations. The toggle function enhances the overall user experience by decluttering the game area. When the rules are visible, the button prompts the player to hide the section again, ensuring a focused game interface.
 
   ![Rules Section](assets/media/rock_paper_scissors_toggle_rules.png)
 
 - **Score section**
-  - The game tracks the player's and Capitain Kirk's scores in real-time. The first to reach 5 points is declared winner. The score resets with a simple "Restart" button.
+  - The game tracks the player's and Capitain Kirk's scores in real-time. It also tracks the rounds number. The first to reach 5 points is declared winner. 
 
   ![Score Section](assets/media/rock_paper_scissors_score_section.png)
 
 - **Result display**
-  - The result of each round is dynamically updated. It also shows what rule determined the winner. For example, if you win with "Rock crushes Scissors," it’s immediately displayed offering a clear feedback.
+  - The result of each round is dynamically updated. It also shows what rule determined the winner. For example, if you loose with "Paper covers Rock", it’s immediately displayed offering a clear feedback.
 
   ![Result display](assets/media/rock_paper_scissors_result_display.png)
 
@@ -83,9 +83,9 @@ The game was tested on various screens sizes, including mobile devices, tablets,
 
 ### Bugs and Fixes
 
-- **Learning Experience:** During the development, I found that creating an object to determine each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient way than using a simple "if-else" function. This helped improve the code's readability and maintainability by avoiding deeply nested conditions.
-- Additionally, I used constants to represent each selection (Rock, Paper, Scissors, Lizard, Spock) as string values. This approach prevented typos and made the code more robust by ensuring that each selection was always referred to consistently.
-- Initially, the game would go on indefinitely without an endpoint. To resolve this, I added a function that stops the game once either the player or the computer reaches 5 points. This ensures that the game ends while providing a clear winner.
+- **Learning Experience:** During development, I discovered through research that using an object to map each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient approach than using multiple 'if-else' statements. This method significantly improved the code's readability and maintainability by avoiding deeply nested conditions.
+- Additionally, I used constants to represent each selection (Rock, Paper, Scissors, Lizard, Spock) as string values. This approach prevented typos and ensures that each selection was always referred to consistently.
+- Initially, the game would go on indefinitely without an endpoint. To resolve this, I added a function that stops the game once either the player or the computer reaches 5 points which also provides a clear winner.
 
 ### Validator Testing
 
@@ -128,5 +128,5 @@ The live link can be found here: https://sophiedufrane.github.io/project2-rockPa
   
 ### Media
 
-- Icons used for the game were sourced from [PNG Wing](https://www.pngwing.com/en/free-png-ycasl).
+- Icons used for the game were sourced from [PNG Wing](https://www.pngwing.com/en/free-png-pzysy).
 - The 2 pictures of Spock and Capitain Kirk were sourced from [Greg Dampier](https://www.gregdampier.com/comics/color/captain-kirk-spock-star-trek).
