@@ -2,7 +2,7 @@
 // Source: https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master
 // Author: NielMc
 // This function was adapted from [love-maths-2.0-sourcecode]. 
-// MOdifications: in this version, the event listener retrieves the data-selection from the clicked button 
+// Modifications: in this version, the event listener retrieves the data-selection from the clicked button 
 // then call the runGame function with userSelection as an argument.
 document.addEventListener("DOMContentLoaded", function prepareGame() {
     let buttons = document.getElementsByClassName("button-selection");
@@ -22,7 +22,7 @@ document.getElementById("rules-toggle").addEventListener("click", toggleRulesSec
 // Add click event listener to the restart button that calls the resetGame function
 document.getElementById("restart-button").addEventListener("click", resetGame);
 
-// Declare constants for each choice to avoid mistakes along the code
+// Declare constant object that groups each choice (to avoid mistakes along the code)
 const ROCK = 0;
 const PAPER = 1;
 const SCISSORS = 2;
@@ -62,6 +62,9 @@ const rules = {
     }
 };
 
+// Set the maximum score for a player to win the game
+const MAX_SCORE = 5;
+
 // Get DOM elements for user and computer selections
 const userIcon = document.getElementById("user-selection");
 const computerIcon = document.getElementById("computer-selection");
@@ -70,17 +73,18 @@ const computerIcon = document.getElementById("computer-selection");
 let roundNumber = 1;
 
 /**
- * Toggle the visibility of the rules section on the page.
+ * Toggle the visibility of the rules section.
  * 
  * When the rules section is hidden, the function will display it and
  * change the toggle's button text to "Hidden rules".
- * When the rules sction is visible, the function will hide it and
+ * When the rules section is visible, the function will hide it and
  * change the toggle's button text to "View rules".
  * 
  * This function is triggered by a click on the toggle button.
  */
 function toggleRulesSection() {
     let rulesSection = document.getElementById("rules-section");
+
     if (rulesSection.style.display === "none") {
         rulesSection.style.display = "block";
         this.textContent = "Hide rules";
@@ -93,19 +97,20 @@ function toggleRulesSection() {
 /**
  * Run the main game logic.
  * 
- * @param {string} userSelection - The user's choice, which corresponds to the data-selection of the button selected (e.g. "Rock", "Paper", "Scissors", "Lizard", or "Spock").
+ * @param {string} userSelection - The user's choice, which corresponds to the data-selection of the icon (button) selected (e.g. "Rock", "Paper", "Scissors", "Lizard", or "Spock").
  * 
+ * Prevent the game from continuing after a player reaches 5 points.
  * Update the images for both the user and the computer based on their selections.
- * Determine the winner by comparing the user's selection with a randomly generated computer selection.
- * Call functions to update the result message, rule message, and (future implementation) scores.
+ * Determine the winner by comparing the user's selection with a randomly generated computer's selection.
+ * Call functions to update the result message, rule message, and scores.
  */
 function runGame(userSelection) {
 
-    // Check if the game is already over (one of the players reached 5 points)
+    // Prevent the game from continuing after a player reaches MAX_SCORE points
     let userScore = parseInt(document.getElementById("user-score").innerText);
     let computerScore = parseInt(document.getElementById("computer-score").innerText);
 
-    if (userScore >= 5 || computerScore >= 5) {
+    if (userScore >= MAX_SCORE || computerScore >= MAX_SCORE) {
         return; // Do nothing as the game is over
     }
 
@@ -220,9 +225,9 @@ function checkGameOver() {
     let computerScore = parseInt(document.getElementById("computer-score").innerText);
     let gameStatus = document.getElementById("game-status");
 
-    if (userScore >= 5) {
+    if (userScore >= MAX_SCORE) {
         gameStatus.textContent = "You Win!";
-    } else if (computerScore >= 5) {
+    } else if (computerScore >= MAX_SCORE) {
         gameStatus.textContent = "Kirk beat you!";
     }
 }
