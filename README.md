@@ -1,94 +1,132 @@
 # Rock Paper Scissors Lizard Spock Game
 
-## Website:
+The **Rock Paper Scissors Lizard Spock game** is a fun extension of the classic **Rock Paper Scissors** game, introducing two additionnal options with Lizard and Spock.
 
-This website's purpose is to offer a game, based on the famous Rock Paper Scissors one. 
-The game has 2 other options with Lizard and Spock: this version was invented by Sam Kass and this is also a fun allusion to the TV show "Big Bang Theory" where the game is mentioned several times.
+The project is designed to be an interactive and fun browser-based game, where the player competes against Capitain Kirk, the computer opponent.
 
-![Responsive Mockup](https://github.com/SophieDufrane/project1-v2/blob/main/assets/media/my_website_mockup.png)
+The game is designed to offer entertainment and fresh challenge for fans of the original game as well as enthusiasts of "The Big Bang Theory" where this version became popular.
+ 
+Just to mention that this version was initially invented by Sam Kass before being mentioned on the TV show.
+
+The game serves at showcase of Javascript's ability to create dynamic, real-time games and responsive user interfaces.
+
+![Responsive Mockup](assets/media/rock_paper_scissors_mockup.png)
 
 ## Features:
 
-- __Header__
+The game is packed with features that enhances user engagement, including dynamic scores updates, interactive rules and responsive design that works across different devices and screens sizes.
 
-    - At 
-    - The 
-    - The 
+Here the key features:
 
-![Header](https://github.com/SophieDufrane/project1-v2/blob/main/assets/media/my_website_navbar.png)
+### Existing Features:
 
-- __Game area__
+- **Game Title and Header**
+  - The game title is display at the top, the font-family and font-size have been chosen to set up the theme: users immediately know they are in for a fun twist on the classic game.
 
-    - Under
-    - A 
-    - This
+  ![Header](assets/media/rock_paper_scissors_header.png)
 
-![Game Area](https://github.com/SophieDufrane/project1-v2/blob/main/assets/media/my_website_welcome.png)
+- **Interactive game console**
+  - The player chooses from the 5 options: **Rock**, **Paper**, **Scissors**, **Lizard**, or **Spock** by clicking the corresponding icons. The player's and computer's selection are immediately reflected in the game console, making it easy to see who is winning each round.
 
-- __Footer__
+  ![Game Console](assets/media/rock_paper_scissors_console.png)
 
-    - This section is structured as a resume and starts with a job title "Full-Stack Developer".
-    - Then there's a brief introduction or pitch, and finally a picture. 
-    - There's a button "Contact Me!" right below the text, it's also a shortcut to go to the contact page and access to the form.
-    - The button has a contrasted color to make it evident and easy to see. Getting in contact with users (potential recruiters) would be the main purpose of this website.
+- **Rules Section**
+  - The game includes a toggle button at the top of the game console, that hides or displays the rules. This feature ensures that players can quickly made their choice and learn the winning combinations. The toggle function improves the overall visual by decluttering the game screen.
 
-![Footer](https://github.com/SophieDufrane/project1-v2/blob/main/assets/media/my_website_about_me.png)
+  ![Rules Section](assets/media/rock_paper_scissors_toggle_rules.png)
 
-## Other tools used:
-- The footer icons and the Menu icon on the navbar were taken from **Font Awesome**.
-- The fonts Abel and Montserrat were taken from **Google Fonts**.
+- **Score section**
+  - The game tracks the player's and Capitain Kirk's scores in real-time. The first to reach 5 points is declared winner. The score resets with a simple "Restart" button.
+
+  ![Score Section](assets/media/rock_paper_scissors_score_section.png)
+
+- **Result display**
+  - The result of each round is dynamically updated. It also shows what rule determined the winner. For example, if you win with "Rock crushes Scissors," it’s immediately displayed offering a clear feedback.
+
+  ![Result display](assets/media/rock_paper_scissors_result_display.png)
+
+- **Restart Button**
+  - A "Restart" button is available at any time to reset the game to its default state, allowing players to start again when the game is over or whenever they want to.
+
+  ![Restart Button](assets/media/rock_paper_scissors_restart_button.png)
+
+- **Footer**
+  - The footer includes a fun nod to Captain Kirk as the computer opponent, reminding players to "Make your move and see if you can outsmart Captain Kirk." This playful twist adds a bit of humor and personality to the game, especially for fans of Star Trek.
+
+![Footer](assets/media/rock_paper_scissors_footer.png)
+
+
+### Features left to implement:
+
+- **Multiplayer Mode**
+  - A future update could allow two players to compete against each other instead of playing against the computer.
+
+- **Score Persistence**
+  - A feature that saves scores across sessions could be implemented so that users can keep track of their wins and losses.
 
 ## Testing:
 
-- I've tested the website on Chrome and Firefox, I also used Chrome developer tools to check responsiveness.
-- I have used a mobile and different devises to see how the website looks like on different screen sizes.
-- I have tested the form and check if all the required fields are set-up correctly.
-- I have clicked on all footer icones to see if the correct pages open in a new tab. Same with the Menu, and buttons.
-- I confirmed that the Website and its functionnalities are working on all devises tested.
+The game has been tested to ensure that it works smoothly across different browsers and devices, including desktop and mobile screens. 
 
-### Validator testing:
+Here’s an overview of the testing process:
 
-- HTML
-Document checking completed. No errors or warnings to show.
+### Browser Compatibility:
 
-![Checkup HTML](https://github.com/SophieDufrane/project1-v2/blob/main/assets/media/my_website_home_html_check.png)
+The game has been tested and works well in the following browsers:
+- Google Chrome
+- Microsoft Edge
+- Mozilla Firefox
 
-- CSS
-No errors were found when passing through the official CSS W3C Jigsaw.
+### Responsive Design:
 
-![Checkup CSS](https://github.com/SophieDufrane/project1-v2/blob/main/assets/media/my_website_css_check.png)
+The game was tested on various screens sizes, including mobile devices, tablets, and desktops, ensuring a seamless experience.
 
-- Lighthouse
-    - Performance was the main issue that had to be fixed on both "Portfolio" and "Contact" pages. It was at 69% first, then resizing the images improved the performance that is now 90%
-    - Accessibility was at 92% on the "Home page". To fix the issue, I've changed the boxes colors and this has improved the score that is now 95%.
-    - Best practices is 100%
-    - SEO is 100%
+### Bugs and Fixes
 
-![Checkup Lighthouse](https://github.com/SophieDufrane/project1-v2/blob/main/assets/media/my_website_lighthouse_home.png)
+- **Learning Experience:** During the development, I found that creating an object to determine each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient way than using a simple "if-else" function. This helped improve the code's readability and maintainability by avoiding deeply nested conditions.
+- Additionally, I used constants to represent each selection (Rock, Paper, Scissors, Lizard, Spock) as string values. This approach prevented typos and made the code more robust by ensuring that each selection was always referred to consistently.
+- Initially, the game would go on indefinitely without an endpoint. To resolve this, I added a function that stops the game once either the player or the computer reaches 5 points. This ensures that the game ends while providing a clear winner.
 
-### Improvements:
+### Validator Testing
 
-The About-me section could have a better look on screens 768px and bigger, the title "About Me" looks slightly disconnected from the rest of the section. 
-I removed the bottom-margin of the h2 on bigger screens to improve the visual, however I think this can be improved to make the visual more consistent.
+- **HTML**: No errors were found when passing the code through the [W3C Validator](https://validator.w3.org/).
+- **CSS**: No errors were found when passing the stylesheet through the [Jigsaw Validator](https://jigsaw.w3.org/css-validator/).
+- **JavaScript**: No major issues were detected through [JSHint](https://jshint.com/).
+The following metrics were returned:
+  - There are 12 functions in this file.
+  - Function with the largest signature take 2 arguments, while the median is 0.
+  - Largest function has 14 statements in it, while the median is 4.
+  - The most complex function has a cyclomatic complexity value of 4 while the median is 2.
 
-## Deployment:
-- The site was deployed to GitHub following the steps below:
-    - In the GitHub repository, navigate to the "Settings" tab.
-    - In the "Pages" menu, from the "Source" dropdown list, select "Deploy from a Branch".
-    - On the branch section select "Main" Branch and "Root" Folder.
-    - Go back to the "Code" tab and refresh.
-    - The ribbon at the top will display a green check when it has been deployed correctly.
-    - On Deployment section check the link for the deploid website.
+- **Lighthouse**: No major issues were detected.
+    - Performance 82%.
+    - Accessibility 91%.
+    - Best practices 100%
+    - SEO 91%
 
-- The live link can be found here: https://sophiedufrane.github.io/project1-v2/
+### Deployment Steps
 
-## Credits:
+The site was deployed to Github following the steps below:
+
+1. Navigate to the repository on GitHub.
+2. Click on the "Settings" tab.
+3. Scroll down to the "GitHub Pages" section.
+4. In the source dropdown menu, select the "main" branch and "Root" Folder.
+5. Go back to the "Code" tab and refresh.
+6. The ribbon at the top will display a green check when it has been deployed correctly.
+7. On the "Deployment" section check the link for the deploid website.
+
+The live link can be found here: https://sophiedufrane.github.io/project2-rockPaperScissors/
+
+## Credits
+
+- 
 
 ### Content
-- The skills-set items (lists) are from the **Code Institute "FullStack Software development" brochure**.
 
+- The game mechanics and logic were inspired by the **Rock Paper Scissors Lizard Spock** variation from "The Big Bang Theory", initially invented by Sam Kass.
+  
 ### Media
-- The pictures are from **Freepick**.
 
-### Source code
-- The design and functionnality of the navbar, using a toggle menu, comes from the **Code Institute "Love Running" project**.
+- Icons used for the game were sourced from [PNG Wing](https://www.pngwing.com/en/free-png-ycasl).
+- The 2 pictures of Spock and Capitain Kirk were sourced from [Greg Dampier](https://www.gregdampier.com/comics/color/captain-kirk-spock-star-trek).
