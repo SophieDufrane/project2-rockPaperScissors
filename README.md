@@ -93,10 +93,10 @@ The game was tested on various screens sizes, including mobile devices, tablets,
 - **CSS**: No errors were found when passing the stylesheet through the [Jigsaw Validator](https://jigsaw.w3.org/css-validator/).
 - **JavaScript**: No major issues were detected through [JSHint](https://jshint.com/).
 The following metrics were returned:
-  - There are 12 functions in this file.
+  - There are 10 functions in this file.
   - Function with the largest signature take 2 arguments, while the median is 0.
-  - Largest function has 14 statements in it, while the median is 4.
-  - The most complex function has a cyclomatic complexity value of 4 while the median is 2.
+  - Largest function has 14 statements in it, while the median is 5.5.
+  - The most complex function has a cyclomatic complexity value of 4 while the median is 2.5.
 
 - **Lighthouse**: No major issues were detected.
     - Performance 82%.

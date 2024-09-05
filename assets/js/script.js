@@ -4,7 +4,7 @@
 // This was adapted from [love-maths-2.0-sourcecode]. 
 // Modifications: in this version, the event listener retrieves the data-selection from the clicked button 
 // then call the runGame function with userSelection as an argument.
-document.addEventListener("DOMContentLoaded", function prepareGame() {
+document.addEventListener("DOMContentLoaded", function setUpGame() {
     let buttons = document.getElementsByClassName("button-selection");
 
     // Add click event listener to each button
@@ -22,7 +22,7 @@ document.getElementById("rules-toggle").addEventListener("click", toggleRulesSec
 // Add click event listener to the restart button that calls the resetGame function
 document.getElementById("restart-button").addEventListener("click", resetGame);
 
-// Declare constant object that groups each choice (to avoid mistakes along the code)
+// Declare constant for each choice (to avoid mistakes along the code)
 const ROCK = 0;
 const PAPER = 1;
 const SCISSORS = 2;
@@ -204,7 +204,6 @@ function updateAndIncrementScores(result) {
         scoreElement.innerText = ++oldScore;
     }
 }
-
 
 /**
  * Check if either the user or computer has reached max points, ending the game if true
