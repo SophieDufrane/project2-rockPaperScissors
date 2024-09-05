@@ -2,13 +2,13 @@
 
 The **Rock Paper Scissors Lizard Spock game** is a fun extension of the classic **Rock Paper Scissors** game, introducing two additionnal options with Lizard and Spock.
 
-The project is designed to be an interactive and fun browser-based game, where the player competes against Capitain Kirk, the computer opponent.
+The project is designed to be a fun and interactive browser-based game, where the player competes against Capitain Kirk, the computer opponent.
 
-The game is designed to offer entertainment and fresh challenge for fans of the original game as well as enthusiasts of "The Big Bang Theory" where this version became popular.
+The game is designed to offer entertainment for fans of the original game as well as for the enthusiasts of *The Big Bang Theory* where it became popular.
  
-Just to mention that this version was initially invented by Sam Kass before being mentioned on the TV show.
+Just to mention that this version of the game was initially invented by *Sam Kass* before being mentioned on the TV show.
 
-The game serves at showcase of Javascript's ability to create dynamic, real-time games and responsive user interfaces.
+The game also showcases Javascript's ability to create dynamic, real-time games and responsive user interfaces.
 
 ![Responsive Mockup](assets/media/rock_paper_scissors_mockup.png)
 
@@ -26,22 +26,23 @@ Here the key features:
   ![Header](assets/media/rock_paper_scissors_header.png)
 
 - **Interactive game console**
-  - The player chooses from the 5 options: **Rock**, **Paper**, **Scissors**, **Lizard**, or **Spock** by clicking the corresponding icons. The player's and computer's selection are immediately reflected in the game console, making it easy to see who is winning each round.
+  - The player is invited to choose from the 5 options: **Rock**, **Paper**, **Scissors**, **Lizard**, or **Spock** by clicking the corresponding icons. A feature highlights the icons when the mouse hovers over them. 
 
   ![Game Console](assets/media/rock_paper_scissors_console.png)
 
 - **Rules Section**
-  - The game includes a toggle button at the top of the console section, that hides or displays the rules. This feature ensures that players can quickly made their choice and learn the winning combinations. The toggle function enhances the overall user experience by decluttering the game area. When the rules are visible, the button prompts the player to hide the section again, ensuring a focused game interface.
+  - The game includes a toggle button at the top of the console section, that hides or displays the rules. This feature ensures that players can quickly make their choice and learn the winning combinations. The toggle function enhances the overall user experience by decluttering the game area. When the rules are visible, the button prompts the player to hide the section again, ensuring a focused game interface.
 
   ![Rules Section](assets/media/rock_paper_scissors_toggle_rules.png)
 
 - **Score section**
-  - The game tracks the player's and Capitain Kirk's scores in real-time. It also tracks the rounds number. The first to reach 5 points is declared winner. 
+  - The game tracks the player's and Capitain Kirk's scores in real-time. It also tracks the round number. The first to reach 5 points is declared winner. 
 
   ![Score Section](assets/media/rock_paper_scissors_score_section.png)
 
 - **Result display**
-  - The result of each round is dynamically updated. It also shows what rule determined the winner. For example, if you loose with "Paper covers Rock", it’s immediately displayed offering a clear feedback.
+  - The result of each round is dynamically updated: the player's and computer's selection are reflected in the game console, making it easy to see who is winning each round. It also shows what rule applies and determines the winner. 
+  For example, if you loose with "Paper covers Rock", it’s immediately displayed offering a clear feedback.
 
   ![Result display](assets/media/rock_paper_scissors_result_display.png)
 
@@ -81,11 +82,15 @@ The game has been tested and works well in the following browsers:
 
 The game was tested on various screens sizes, including mobile devices, tablets, and desktops, ensuring a seamless experience.
 
-### Bugs and Fixes
+### Bugs, Fixes and learning Experiences
 
-- **Learning Experience:** During development, I discovered through research that using an object to map each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient approach than using multiple 'if-else' statements. This method significantly improved the code's readability and maintainability by avoiding deeply nested conditions.
-- Additionally, I used constants to represent each selection (Rock, Paper, Scissors, Lizard, Spock) as string values. This approach prevented typos and ensures that each selection was always referred to consistently.
-- Initially, the game would go on indefinitely without an endpoint. To resolve this, I added a function that stops the game once either the player or the computer reaches 5 points which also provides a clear winner.
+- Recommendations from discussions with my mentor helped me improve my initial code:
+  - I combined functions that I had initially created separately
+  - I gave names to any functions that were anonymous.
+  - I used constants to represent each selection (Rock, Paper, Scissors, Lizard, Spock) as string values. This approach prevented typos and ensured that each selection was always referred to consistently.  
+  - He pointed out that the game was running indefinitely without an endpoint. To resolve this, I added a function that stops the game once either the player or the computer reaches 5 points, which also provides a clear winner.
+- During development, I discovered through research that using an object to map each possible combination of the game (e.g., Rock crushes Scissors) was a more efficient approach than using multiple 'if-else' statements. This method significantly improved the code's readability and maintainability by avoiding deeply nested conditions.
+- I also learned to improve the *documentation comments* for functions.
 
 ### Validator Testing
 
@@ -120,7 +125,7 @@ The live link can be found here: https://sophiedufrane.github.io/project2-rockPa
 
 ## Credits
 
-- 
+- In the Javascrip file, the first function to wait for the DOM to finish loading before running the game came from the [Love Math Project](https://github.com/Code-Institute-Solutions/love-maths-2.0-sourcecode/tree/master) of the Code Institute (Author NielMc). This was adapted for the **Rock Paper Scissors Lizard Spock Game**. 
 
 ### Content
 
